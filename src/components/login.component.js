@@ -80,12 +80,11 @@ var generateRandomString = function (length) {
 };
 
 
-function Login() {
-    const CLIENT_ID = "55b9c926505a44b9b685faaec5b28633"
-    const REDIRECT_URI = "http://localhost:8081/callback"
+function Login(props) {
+    const CLIENT_ID = props.client_id
+    const REDIRECT_URI = props.redirect_uri
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
-    const CLIENT_SECRET = '75a0d8b2918c4159a1cb68bea678d562'
     const SCOPE = 'user-top-read';
 
     const [token, setToken] = useState("")
@@ -114,13 +113,13 @@ function Login() {
     }, [])
 
     const onChangeArea = async (e) => {
-        setError(false,"")
+        setError(false, "")
         setSucess(0)
         setArea(e.target.value)
     }
 
     const onChangeGrau = async (e) => {
-        setError(false,"")
+        setError(false, "")
         setSucess(0)
         setGrau(e.target.value)
     }
@@ -130,11 +129,11 @@ function Login() {
         window.localStorage.removeItem("token")
     }
     const saveSongData = async (e) => {
-        setError(false,"")
+        setError(false, "")
         setSucess(0)
         e.preventDefault()
         if (grau === "" || area === "") {
-            setError(true)
+            setError([true])
             return
         }
         try {
@@ -159,7 +158,7 @@ function Login() {
         <div>
             {succ <= 0 ?
                 <div>
-                    {erro ?
+                    {erro[0] ?
                         <div className="warning">Preencha todos os campos!</div> : null}
                     {succ < 0 ?
                         <div className="error">Erro Fatal!</div> : null}

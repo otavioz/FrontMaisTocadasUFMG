@@ -2,26 +2,35 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Login from "./components/login.component"
+import mlogo from './style/mtocadas-logo.png';
+//https://medium.com/@awhite4096/no-my-collage-generator-for-spotify-cannot-hack-your-spotify-7d44cd68b1d1
+
+
 
 class App extends Component {
     render() {
+        var client_id = process.env.REACT_APP_CLIENT_ID
+        var redirect_uri = process.env.REACT_APP_REDIRECT_URI
+        var client_secret = process.env.REACT_APP_CLIENT_SECRET
         return (
-            <div className="wrapper container-fluid">
+            <div className="container-fluid container">
                 <div className="app-container">
                     <div className="row text-center" id="title_div">
-                        <h2>EscutaUFMG
-                            <span className="lighter"> com Spotify </span>
-                            <i className="fa fa-spotify fa-right" aria-hidden="true"></i>
-                        </h2>
+                        <div><img src={mlogo} className="smol" />
+                            <a className="lighter"> com Spotify&nbsp;
+                                <i className="fa fa-spotify fa-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div>
+                    <div className="wrapper nav_container">
                         <div id="msform">
                             <fieldset>
-                                <h2 className="fs-title">Isso não irá expor seus dados ou hackear sua conta.</h2>
-                                <h3 className="fs-subtitle"><a className="link"
-                                    href="https://medium.com/@bauus/no-my-collage-generator-for-spotify-cannot-hack-your-spotify-7d44cd68b1d1?sk=ef58ff48ac46a1fec575700f4844d7eb">
-                                    (saiba mais)</a></h3>
-                                <Login />
+                                <h2 className="fs-title">Isso não irá expor seus dados ou hackear sua conta&nbsp;
+                                    <a className="fs-subtitle"></a>
+                                    <a className="link"
+                                        href="https://developer.spotify.com/documentation/general/guides/authorization/">
+                                        (saiba mais)</a></h2>
+                                <Login client_id={client_id} redirect_uri={redirect_uri} />
                             </fieldset>
                         </div>
                     </div>

@@ -38,6 +38,20 @@ body {
     padding-top: 20px;
 }
 
+.lighter:hover,
+.lighter {
+    font-weight: 300;
+    vertical-align: bottom;
+    text-decoration: none;
+    color: black
+}
+
+
+.smol {
+    width: 27%;
+    padding-top: 20px;
+}
+
 .abutton {
     text-decoration: none;
 }
@@ -120,9 +134,13 @@ h5 {
     padding: 3px;
 }
 
+.app-container {
+    position: relative;
+}
+
 /*buttons*/
 #msform .action-button {
-    width: 100px;
+    width: 20%;
     background: #27AE60;
     font-weight: bold;
     color: white;
@@ -143,7 +161,7 @@ h5 {
     font-size: 15px;
     text-transform: uppercase;
     color: #2C3E50;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 .fs-subtitle {
